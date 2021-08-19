@@ -1,0 +1,11 @@
+Contents from a database cursor can be wrtitten to a CSV with
+
+data = Inscursor.fetchall()
+#Get the column names
+header = [col[0] for col in Inscursor.description]
+
+#The newline='' eliminates blank lines between rows
+with open('file.csv','w',newline='') as outfile:
+    cons = csv.writer(outfile)
+    cons.writerow(header)
+    cons.writerows(data)
