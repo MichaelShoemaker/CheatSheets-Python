@@ -1,0 +1,8 @@
+Instead of having to close connection and cursor and delete the cursor you can use with to automatically do this.
+
+```
+    with pyodbc.connect("Driver={SQL Server Native Client 11.0};""Server=Server\Instance;""Database=DB;""Trusted_Connection=yes;") as connection:
+        with connection.cursor() as Inscursor:
+            Inscursor.execute('Query Goes Here')
+
+            data = Inscursor.fetchall()
